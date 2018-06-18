@@ -1,0 +1,11 @@
+replace () {
+    find ./ -type f -exec sed -i "s/$1/$2/g" {} \;
+}
+
+www () {
+    lynx "http://$1"
+}
+
+gem () {
+    command gem "$@" --user-install
+}
