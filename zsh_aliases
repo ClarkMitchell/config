@@ -1,0 +1,31 @@
+lsa='ls -lah'
+alias aliases="emacs /Users/clark/.zsh_aliases && source
+/Users/clark/.zsh_aliases"
+alias
+emacs="/usr/local/Cellar/emacs/25.3/Emacs.app/Contents/MacOS\
+/Emacs -nw"
+alias zshconfig="emacs /Users/clark/.zshrc && source
+/Users/clark/.zshrc"
+alias oldphp="brew unlink php71 --force && brew link php56
+--force && sudo brew services stop php71 && sudo brew
+services restart php56"
+alias newphp="brew unlink php56 --force && brew link php71
+--force && sudo brew services stop php56 && sudo brew
+services restart php71"
+alias check="phpcs --extensions=php --standard=PSR1,PSR2"
+alias fix="phpcbf --extensions=php --standard=PSR1,PSR2"
+alias unsecuremysql="sudo mysql.server restart
+--skip-grant-tables"
+alias psy="psysh"
+alias nginxconf="emacs /usr/local/etc/nginx/nginx.conf &&
+sudo /usr/local/bin/nginx -s reload"
+alias shipgit="cat ~/.spaceship-prompt-status.txt"
+alias docs="cd ~/Documents"
+alias external="cd /Volumes/external"
+alias code="code . -r"
+alias copy="pbcopy"
+alias ag='ag --path-to-ignore ~/.ignore'
+alias ports="lsof -iTCP -sTCP:LISTEN -P -n"
+alias funcs="emacs /Users/clark/.zsh_functions && source
+/Users/clark/.zsh_functions"
+alias p="platform"
