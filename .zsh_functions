@@ -9,3 +9,15 @@ www () {
 gem () {
     command gem "$@" --user-install
 }
+
+mess () {
+    phpmd $1 text cleancode,codesize,controversial,design,naming,unusedcode --exclude=vendor
+}
+
+convert () {
+    pandoc -w mediawiki $1 -o $2
+}
+
+gpip() {
+    PIP_REQUIRE_VIRTUALENV="0" pip3 "$@"
+}

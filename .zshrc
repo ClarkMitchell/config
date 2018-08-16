@@ -2,8 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/clark/.oh-my-zsh
-
+export ZSH="/Users/clark/.oh-my-zsh"
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -59,10 +61,17 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+    git
+    zsh-syntax-highlighting
+    colored-man-pages
+    colorize
+    composer
+    symfony2
+    virtualenv
+    virtualenvwrapper
 )
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh &>/dev/null
 
 # User configuration
 
@@ -93,23 +102,44 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/.zsh_aliases
-source ~/.zsh_functions
+source ~/.zsh_aliases &>/dev/null
+source ~/.zsh_functions &>/dev/null
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 autoload -U promptinit; promptinit
 prompt spaceship
 
 SPACESHIP_CHAR_SYMBOL='❯ '
 
+DOW=$(date +"%u")
+
+case "$DOW" in
+
+1)  NORSE="MANUDAGR"
+    ;;
+2)  NORSE="TYRSDAGR"
+    ;;
+3)  NORSE="ODINSDAGR"
+    ;;
+4)  NORSE="THORSDAGR"
+    ;;
+5)  NORSE="FRJADAGR"
+    ;;
+6)  NORSE="LAUGARDAGR"
+    ;;
+7)  NORSE="SUNNUDAGR"
+    ;;
+esac
+
+echo $NORSE | figlet -c -w 140 -f roman | lolcat
+
 archey -c
-echo -n "                                                            "
+/bin/echo -n "                                                                "
 emojify ":sparkles: :rocket: :sparkles:"
-echo ""
+/bin/echo ""
 
 export VISUAL=emacs
 export EDITOR="$VISUAL"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
